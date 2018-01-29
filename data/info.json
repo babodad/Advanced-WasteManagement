@@ -1,0 +1,11 @@
+{
+	"name": "Incinerator",
+	"version": "0.0.1",
+	"title": "Incinerator",
+	"author": "drbert",
+	"description": "Waste2Energy",
+	"homepage": "",
+	"contact": "",
+	"factorio_version":"0.16",
+	"dependencies": ["base >= 0.16.8"]
+}
