@@ -1,20 +1,80 @@
-function addRecipes(Recipes)
-    for recipe_name, recipe in pairs(Recipes) do
-        local recipe = data.raw.recipe[recipe_name]
-        if recipe then 
-            -- data.raw.item[recipe_name].fuel_category = {"chemical"} 
-            table.insert(data.raw.item[recipe_name], {fuel_category = "chemical"})
-            table.insert(data.raw.item[recipe_name], {fuel_value = "1.0GJ"})
-            -- data.raw.item[recipe_name].fuel_value = {"1.0GJ"}
+function get_ItemType(name)
+    local item_types = {"ammo", "armor", "capsule", "fluid", "gun", "item", "mining-tool", "module", "tool", "item-with-entity-data"}
+    local item_type = nil
+    for i, type_name in pairs(item_types) do
+      if data.raw[type_name][name] then item_type = type_name end
+    end
+    return item_type
+  end
+
+
+function addFuel(Items)
+    for item_name, values in pairs(Items) do        
+        log("Item-Name:")
+        log(serpent.block(item_name))        
+        log("Values:")
+        for title, value in pairs(values) do
+            log("\t" .. serpent.line(title) .. " = " .. serpent.line(value) )
+        end        
+        log("Recipe:")
+        local recipe = data.raw.recipe[item_name]
+        local ingredients = {}
+        local flammable
+        local flame_value
+        if recipe then -- if recipe exists
+            local ingredients = recipe.ingredients
+            if ingredients then                
+                for _, ingr in pairs(ingredients) do
+                    log("\t" .. serpent.line(ingr) )
+                    for n, value in pairs(ingr) do
+                        log("\t" .. serpent.line(value) )
+                        if value == "plastic-bar" then
+                            flammable = true
+                            log("\t" .. "Flame-Value:" .. serpent.line(ingr[n+1]*10) ) 
+                            flame_value = ingr[n+1]*10
+                        end
+                        if value == "advanced-circuit" then
+                            flammable = true
+                            log("\t" .. "Flame-Value:" .. serpent.line(ingr[n+1]*20) ) 
+                            flame_value = ingr[n+1]*20
+                        end
+                        if value == "processing-unit" then
+                            flammable = true
+                            log("\t" .. "Flame-Value:" .. serpent.line(ingr[n+1]*40) ) 
+                            flame_value = ingr[n+1]*40
+                        end
+                        if value == "battery" then
+                            flammable = true
+                            log("\t" .. "Flame-Value:" .. serpent.line(ingr[n+1]*30) ) 
+                            flame_value = ingr[n+1]*30
+                        end
+                    end                    
+                end
+            end
         end
+        if flammable then
+            data.raw.item[item_name].fuel_category = "incernator"
+            data.raw.item[item_name].fuel_value = flame_value .. "MJ"
+        end
+
+        
+            -- log("key: " .. key .. " value: " .. value)
+        -- local recipe = data.raw.recipe[recipe_name]
+        -- if recipe then 
+        --     get_ItemType()
+        --     -- data.raw.item[recipe_name].fuel_category = {"chemical"} 
+        --     data.raw.item[recipe_name], {fuel_category = "chemical"})
+        --     data.raw.item[recipe_name], {fuel_value = "1.0GJ"})
+        --     -- data.raw.item[recipe_name].fuel_value = {"1.0GJ"}
+        -- end
     end
 end
     
 
-
- addRecipes(data.raw.ammo)				--Create recipes for all ammunitions
- addRecipes(data.raw.armor)				--Create recipes for all armors
- addRecipes(data.raw.item)				--Create recipes for all items
+log ("Test")
+--  addRecipes(data.raw.ammo)				--Create recipes for all ammunitions
+--  addRecipes(data.raw.armor)				--Create recipes for all armors
+addFuel(data.raw.item)				--Create recipes for all items
 --  addRecipes(data.raw.gun)				--Create recipes for all weapons
 -- addRecipes(data.raw.capsule)			--Create recipes for all capsules
 -- addRecipes(data.raw.module)				--Create recipes for all modules
@@ -22,5 +82,9 @@ end
 -- addRecipes(data.raw["rail-planner"])	--Create recipe for rail. Seriously, just rail.
 -- addRecipes(data.raw["mining-tool"])		--Create recipes for all mining tools
 -- addRecipes(data.raw["repair-tool"]) 	--Create recipes for all repair tools
-
-error(serpent.block(data.raw))
+-- data.raw.item["iron-chest"].fuel_category = "chemical"
+-- data.raw.item["iron-chest"].fuel_value = "1.0GJ"
+-- -- table.insert(data.raw.ammo["flamethrower-ammo"], {fuel_category = "chemical"})
+-- -- table.insert(data.raw.ammo["flamethrower-ammo"], {fuel_value = "1.0GJ"})
+-- data.raw.ammo["flamethrower-ammo"].fuel_category = "chemical"
+-- data.raw.ammo["flamethrower-ammo"].fuel_value = "1.0GJ"
