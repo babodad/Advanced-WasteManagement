@@ -2,7 +2,7 @@ data:extend(
 {
   {
     type = "fuel-category",
-    name = "incernator"
+    name = "incinerator"
   }
 })
-require("prototypes.incernator")
+require("prototypes.incinerator")

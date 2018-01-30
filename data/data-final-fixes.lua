@@ -1,14 +1,14 @@
-function get_ItemType(name)
-    local item_types = {"ammo", "armor", "capsule", "fluid", "gun", "item", "mining-tool", "module", "tool", "item-with-entity-data"}
-    local item_type = nil
-    for i, type_name in pairs(item_types) do
-      if data.raw[type_name][name] then item_type = type_name end
-    end
-    return item_type
-  end
+-- function get_ItemType(name)
+--     local item_types = {"ammo", "armor", "capsule", "fluid", "gun", "item", "mining-tool", "module", "tool", "item-with-entity-data"}
+--     local item_type = nil
+--     for i, type_name in pairs(item_types) do
+--       if data.raw[type_name][name] then item_type = type_name end
+--     end
+--     return item_type
+--   end
 
 
-function addFuel(Items)
+function addFuel(Items, item_type)
     for item_name, values in pairs(Items) do        
         log("Item-Name:")
         log(serpent.block(item_name))        
@@ -20,7 +20,7 @@ function addFuel(Items)
         local recipe = data.raw.recipe[item_name]
         local ingredients = {}
         local flammable
-        local flame_value
+        local flame_value = 0
         if recipe then -- if recipe exists
             local ingredients = recipe.ingredients
             if ingredients then                
@@ -31,30 +31,45 @@ function addFuel(Items)
                         if value == "plastic-bar" then
                             flammable = true
                             log("\t" .. "Flame-Value:" .. serpent.line(ingr[n+1]*10) ) 
-                            flame_value = ingr[n+1]*10
+                            flame_value = flame_value + ingr[n+1]*10
+                        end
+                        if value == "electronic-circuit" then
+                            flammable = true
+                            log("\t" .. "Flame-Value:" .. serpent.line(ingr[n+1]*10) ) 
+                            flame_value = flame_value + ingr[n+1]*10
                         end
                         if value == "advanced-circuit" then
                             flammable = true
                             log("\t" .. "Flame-Value:" .. serpent.line(ingr[n+1]*20) ) 
-                            flame_value = ingr[n+1]*20
+                            flame_value = flame_value + ingr[n+1]*20
                         end
                         if value == "processing-unit" then
                             flammable = true
                             log("\t" .. "Flame-Value:" .. serpent.line(ingr[n+1]*40) ) 
-                            flame_value = ingr[n+1]*40
+                            flame_value = flame_value + ingr[n+1]*40
                         end
                         if value == "battery" then
                             flammable = true
                             log("\t" .. "Flame-Value:" .. serpent.line(ingr[n+1]*30) ) 
-                            flame_value = ingr[n+1]*30
+                            flame_value = flame_value + ingr[n+1]*30
                         end
+                        if value == "explosives" then
+                            flammable = true
+                            log("\t" .. "Flame-Value:" .. serpent.line(ingr[n+1]*15) ) 
+                            flame_value = flame_value + ingr[n+1]*15
+                        end
+                        -- if value == "coal" then
+                        --     flammable = true
+                        --     log("\t" .. "Flame-Value:" .. serpent.line(ingr[n+1]*10) ) 
+                        --     flame_value = flame_value + ingr[n+1]*10
+                        -- end
                     end                    
                 end
             end
         end
         if flammable then
-            data.raw.item[item_name].fuel_category = "incernator"
-            data.raw.item[item_name].fuel_value = flame_value .. "MJ"
+            data.raw[item_type][item_name].fuel_category = "incinerator"
+            data.raw[item_type][item_name].fuel_value = flame_value .. "MJ"
         end
 
         
@@ -72,9 +87,18 @@ end
     
 
 log ("Test")
+
+addFuel(data.raw.item, "item")
+addFuel(data.raw.module, "module")
+addFuel(data.raw.ammo, "ammo")
+addFuel(data.raw.capsule, "capsule")
+addFuel(data.raw.armor, "armor")
+addFuel(data.raw.tool, "tool")
+
+
 --  addRecipes(data.raw.ammo)				--Create recipes for all ammunitions
 --  addRecipes(data.raw.armor)				--Create recipes for all armors
-addFuel(data.raw.item)				--Create recipes for all items
+				--Create recipes for all items
 --  addRecipes(data.raw.gun)				--Create recipes for all weapons
 -- addRecipes(data.raw.capsule)			--Create recipes for all capsules
 -- addRecipes(data.raw.module)				--Create recipes for all modules
