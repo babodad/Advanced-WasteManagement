@@ -53,9 +53,9 @@ data:extend(
     -- trash-ash recipes
     {
         type = "recipe",
-        name = "landfill",
+        name = "incinerator-landfill",
         energy_required = 0.5,
-        enabled = false,
+        enabled = true,
         category = "crafting",
         ingredients =
         {
@@ -66,28 +66,14 @@ data:extend(
     },
     {
         type = "recipe",
-        name = "concrete",
+        name = "incinerator-concrete",
         energy_required = 10,
-        enabled = false,
+        enabled = true,
         category = "crafting-with-fluid",
         ingredients =
         {
           {"stone-brick", 1},
-          {"trash-ash", 5  {
-            type = "recipe",
-            name = "concrete",
-            energy_required = 10,
-            enabled = false,
-            category = "crafting-with-fluid",
-            ingredients =
-            {
-              {"stone-brick", 5},
-              {"iron-ore", 1},
-              {type="fluid", name="water", amount=100}
-            },
-            result= "concrete",
-            result_count = 10
-          },},
+          {"trash-ash", 5},
           {type="fluid", name="water", amount=100}
         },
         result= "concrete",
