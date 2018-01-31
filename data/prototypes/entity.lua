@@ -1,27 +1,7 @@
 data:extend(
 {
-    --- item:
-    {
-        type = "item",
-        name = "incinerator",
-        icon = "__Incinerator__/graphics/boiler.png",
-        icon_size = 32,
-        flags = {"goes-to-quickbar"},
-        subgroup = "energy",
-        order = "b[steam-power]-a[boiler]",
-        place_result = "incinerator",
-        stack_size = 50
-    },
-    --- recipe:
-    {
-        type = "recipe",
-        name = "incinerator",
-        enabled = true,
-        energy_required = 10,
-        ingredients = {{"stone-furnace", 1}, {"pipe", 4}},
-        result = "incinerator",
-        result_count = 1,
-    },
+
+
 
     --- entity:
     {
@@ -86,7 +66,8 @@ data:extend(
       type = "burner",
       fuel_category = "incinerator",
       effectivity = 0.5,
-      fuel_inventory_size = 1,
+      fuel_inventory_size = 2,
+      burnt_inventory_size = 1,
       emissions = 0.1 / 6.5,
       smoke =
       {
@@ -96,7 +77,7 @@ data:extend(
           south_position = util.by_pixel(38.5, -32),
           east_position = util.by_pixel(20, -70),
           west_position = util.by_pixel(-19, -8.5),
-          frequency = 15,
+          frequency = 30,
           starting_vertical_speed = 0.0,
           starting_frame_deviation = 60
         }
@@ -107,7 +88,7 @@ data:extend(
       sound =
       {
         filename = "__base__/sound/boiler.ogg",
-        volume = 0.8
+        volume = 1.0
       },
       max_sounds_per_type = 3
     },
