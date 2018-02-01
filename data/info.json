@@ -3,7 +3,7 @@
 	"version": "0.0.6",
 	"title": "Advanced Waste Management",
 	"author": "drbert",
-	"description": "A special incineration process enables you to ",
+	"description": "Introduces waste incineration which enables you to burn obsolete stuff to generate energy. Different types of ash remaining in this process can be smelted to regain some of the metals. ",
 	"homepage": "",
 	"contact": "",
 	"factorio_version":"0.16",
