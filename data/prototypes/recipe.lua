@@ -4,7 +4,7 @@ data:extend(
     {
         type = "recipe",
         name = "incinerator",
-        enabled = true,
+        enabled = false,
         energy_required = 10,
         ingredients = {{"stone-furnace", 1}, {"pipe", 4}},
         result = "incinerator",
@@ -55,7 +55,7 @@ data:extend(
         type = "recipe",
         name = "incinerator-landfill",
         energy_required = 0.5,
-        enabled = true,
+        enabled = false,
         category = "crafting",
         ingredients =
         {
@@ -68,7 +68,7 @@ data:extend(
         type = "recipe",
         name = "incinerator-concrete",
         energy_required = 10,
-        enabled = true,
+        enabled = false,
         category = "crafting-with-fluid",
         ingredients =
         {

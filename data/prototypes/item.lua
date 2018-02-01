@@ -18,7 +18,7 @@ data:extend(
     {
         type = "item",
         name = "rich-iron-ash",
-        icon = "__Incinerator__/graphics/incinerator-ash.png",
+        icon = "__Incinerator__/graphics/rich-iron-ash.png",
         icon_size = 32,
         flags = {"goes-to-main-inventory"},
         subgroup = "intermediate-product",
@@ -28,7 +28,7 @@ data:extend(
     {
         type = "item",
         name = "iron-ash",
-        icon = "__Incinerator__/graphics/incinerator-ash.png",
+        icon = "__Incinerator__/graphics/iron-ash.png",
         icon_size = 32,
         flags = {"goes-to-main-inventory"},
         subgroup = "intermediate-product",
@@ -38,7 +38,7 @@ data:extend(
     {
         type = "item",
         name = "rich-copper-ash",
-        icon = "__Incinerator__/graphics/incinerator-ash.png",
+        icon = "__Incinerator__/graphics/rich-copper-ash.png",
         icon_size = 32,
         flags = {"goes-to-main-inventory"},
         subgroup = "intermediate-product",
@@ -48,7 +48,7 @@ data:extend(
     {
         type = "item",
         name = "copper-ash",
-        icon = "__Incinerator__/graphics/incinerator-ash.png",
+        icon = "__Incinerator__/graphics/copper-ash.png",
         icon_size = 32,
         flags = {"goes-to-main-inventory"},
         subgroup = "intermediate-product",
@@ -58,7 +58,7 @@ data:extend(
     {
         type = "item",
         name = "trash-ash",
-        icon = "__Incinerator__/graphics/incinerator-ash.png",
+        icon = "__Incinerator__/graphics/trash-ash.png",
         icon_size = 32,
         flags = {"goes-to-main-inventory"},
         subgroup = "intermediate-product",

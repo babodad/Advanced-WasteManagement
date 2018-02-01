@@ -1,9 +1,6 @@
 data:extend(
 {
-
-
-
-    --- entity:
+    --- INCINERATOR:
     {
     type = "boiler",
     name = "incinerator",

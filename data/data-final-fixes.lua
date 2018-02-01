@@ -142,7 +142,7 @@ function scanItem(item_name, iteration)
 
 end
 
-function Test(Items, item_type)
+function AddFuel(Items, item_type)
     for item_name, values in pairs(Items) do 
         if not data.raw[item_type][item_name].fuel_category then -- Skip fuel items
             local iron = 0
@@ -179,7 +179,9 @@ function Test(Items, item_type)
     end
 end
 
-    
-
-
-Test(data.raw.item, "item")
+AddFuel(data.raw.item, "item")
+AddFuel(data.raw.ammo, "ammo")
+AddFuel(data.raw.armor, "armor")
+AddFuel(data.raw.gun, "gun")
+AddFuel(data.raw.capsule, "capsule")
+AddFuel(data.raw.module, "module")
