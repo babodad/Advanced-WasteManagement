@@ -75,16 +75,6 @@ function CalcFuel(name, amount)
     return iron, copper, fuel
 end
 
-
-
-    -- elseif i < 5
-    --     log("\t" .. "iron : "  .. iron .. " / copper: " copper .. " / copper: " .. fuel)  
-    --     log("\t" .. "scanning layer "  .. i+1 .. " of " serpent.line(value)) 
-    --     add_iron, add_copper, add_fuel = getIngredients(item_name, i+1)
-    --     log("\t" .. "iron : "  .. iron .. " / copper: " copper .. " / copper: " .. fuel)  
-    --     log("\t" .. "addiron : "  .. add_iron .. " / addcopper: " add_copper .. " / addcopper: " .. add_fuel)
-    -- end
-
 function scanItem(item_name, iteration)    
     local iron = 0
     local copper = 0
@@ -100,14 +90,16 @@ function scanItem(item_name, iteration)
             local add_fuel = 0
             -- add_iron, add_copper, add_fuel = CalcFuel(name, amount)
             if name == "iron-plate" then
-                add_iron = amount    
+                add_iron = 1*amount    
             elseif name == "steel-plate" then
                 add_iron = 2*amount    
             elseif name == "copper-plate" then
-                add_copper = amount        
+                add_copper = 1*amount        
             --Scan for incinerator-fuel:
             elseif name == "electronic-circuit" then 
-                add_fuel = 5*amount    
+                add_fuel = 0.1*amount  
+                add_copper = 1.5*amount  
+                add_iron = 1*amount   
             elseif name == "plastic-bar" then
                 add_fuel = 10*amount    
             elseif name == "sulfur" then
@@ -115,7 +107,7 @@ function scanItem(item_name, iteration)
             elseif name == "sulfuric-acid" then
                 add_fuel = 1*amount
             elseif name == "coal" then
-                add_fuel = 5*amount
+                add_fuel = 8*amount
             --scan next recipe layer:
             elseif (add_iron + add_copper + add_fuel == 0) and i < 5 then 
                 i = i+1                
@@ -128,12 +120,7 @@ function scanItem(item_name, iteration)
             iron = iron + add_iron
             copper = copper + add_copper
             fuel = fuel + add_fuel
-
             -- log("\t" .. "iron : "  .. iron .. " / copper: " .. copper .. " / fuel: " .. fuel)
-
-
-            
-
         end
 
     end
@@ -149,35 +136,42 @@ function AddFuel(Items, item_type)
             local copper = 0
             local fuel = 0
             iron, copper, fuel = scanItem(item_name,1)
-            log("Item-Name:")
-            log(serpent.block(item_name)) 
             if fuel > 10000 then 
                 fuel = 10000
             end
-            log("iron : "  .. iron .. " / copper: " .. copper .. " / fuel: " .. fuel)
-            
-            data.raw[item_type][item_name].fuel_category = "incinerator"
-            data.raw[item_type][item_name].fuel_value = fuel .. "MJ"
-            if iron >= copper then
-                if iron >= 40 then
-                    data.raw[item_type][item_name].burnt_result = "rich-iron-ash"
-                elseif iron >= 10 then
-                    data.raw[item_type][item_name].burnt_result = "iron-ash"
-                else
-                    data.raw[item_type][item_name].burnt_result = "trash-ash"
+            if fuel == 0 and AWM.EverythingBurns then
+                fuel = 0.1
+            end
+            if fuel > 0 then
+                data.raw[item_type][item_name].fuel_category = "incineration"
+                data.raw[item_type][item_name].fuel_value = fuel .. "MJ"
+                if iron >= copper then
+                    if iron >= 40 then
+                        data.raw[item_type][item_name].burnt_result = "rich-iron-ash"
+                        log(serpent.block(item_name) .. ", " .. fuel .. ", rich-iron-ash, " .. iron .. ", " .. copper)
+                    elseif iron >= 4 then
+                        data.raw[item_type][item_name].burnt_result = "iron-ash"
+                        log(serpent.block(item_name) .. ", " .. fuel .. ", iron-ash, " .. iron .. ", " .. copper)
+                    else
+                        data.raw[item_type][item_name].burnt_result = "trash-ash"
+                        log(serpent.block(item_name) .. ", " .. fuel .. ", trash-ash, " .. iron .. ", " .. copper)
+                    end
+                elseif copper > iron then
+                    if copper >= 40 then
+                        data.raw[item_type][item_name].burnt_result = "rich-copper-ash"
+                        log(serpent.block(item_name) .. ", " .. fuel .. ", rich-copper-ash, " .. iron .. ", " .. copper)
+                    elseif copper >= 4 then
+                        data.raw[item_type][item_name].burnt_result = "copper-ash"
+                        log(serpent.block(item_name) .. ", " .. fuel .. ", copper-ash, " .. iron .. ", " .. copper)
+                    else
+                        data.raw[item_type][item_name].burnt_result = "trash-ash"
+                        log(serpent.block(item_name) .. ", " .. fuel .. ", trash-ash, " .. iron .. ", " .. copper)
+                    end
                 end
-            elseif copper > iron then
-                if copper >= 20 then
-                    data.raw[item_type][item_name].burnt_result = "rich-copper-ash"
-                elseif copper >= 10 then
-                    data.raw[item_type][item_name].burnt_result = "copper-ash"
-                else
-                    data.raw[item_type][item_name].burnt_result = "trash-ash"
-                end
-            end 
+            end --if fuel >0
         end       
     end
-end
+end 
 
 AddFuel(data.raw.item, "item")
 AddFuel(data.raw.ammo, "ammo")

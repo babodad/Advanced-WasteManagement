@@ -4,7 +4,7 @@ data:extend(
     {
         type = "item",
         name = "incinerator",
-        icon = "__Incinerator__/graphics/boiler.png",
+        icon = "__Advanced-WasteManagement__/graphics/icons/boiler.png",
         icon_size = 32,
         flags = {"goes-to-quickbar"},
         subgroup = "energy",
@@ -13,12 +13,24 @@ data:extend(
         stack_size = 50
     },
 
-    --- Ash:
-    -- TODO: Add different types of ash (copper,iron,stone)
+    --- Ash-Remover:
+    {
+        type = "item",
+        name = "ash-remover",
+        icon = "__Advanced-WasteManagement__/graphics/icons/ash-remover.png",
+        icon_size = 32,
+        flags = {"goes-to-quickbar"},
+        subgroup = "inserter",
+        order = "e[filter-inserter]",
+        place_result = "ash-remover",
+        stack_size = 50
+      },
+
+    --- Ashes:
     {
         type = "item",
         name = "rich-iron-ash",
-        icon = "__Incinerator__/graphics/rich-iron-ash.png",
+        icon = "__Advanced-WasteManagement__/graphics/icons/rich-iron-ash.png",
         icon_size = 32,
         flags = {"goes-to-main-inventory"},
         subgroup = "intermediate-product",
@@ -28,7 +40,7 @@ data:extend(
     {
         type = "item",
         name = "iron-ash",
-        icon = "__Incinerator__/graphics/iron-ash.png",
+        icon = "__Advanced-WasteManagement__/graphics/icons/iron-ash.png",
         icon_size = 32,
         flags = {"goes-to-main-inventory"},
         subgroup = "intermediate-product",
@@ -38,7 +50,7 @@ data:extend(
     {
         type = "item",
         name = "rich-copper-ash",
-        icon = "__Incinerator__/graphics/rich-copper-ash.png",
+        icon = "__Advanced-WasteManagement__/graphics/icons/rich-copper-ash.png",
         icon_size = 32,
         flags = {"goes-to-main-inventory"},
         subgroup = "intermediate-product",
@@ -48,7 +60,7 @@ data:extend(
     {
         type = "item",
         name = "copper-ash",
-        icon = "__Incinerator__/graphics/copper-ash.png",
+        icon = "__Advanced-WasteManagement__/graphics/icons/copper-ash.png",
         icon_size = 32,
         flags = {"goes-to-main-inventory"},
         subgroup = "intermediate-product",
@@ -58,7 +70,7 @@ data:extend(
     {
         type = "item",
         name = "trash-ash",
-        icon = "__Incinerator__/graphics/trash-ash.png",
+        icon = "__Advanced-WasteManagement__/graphics/icons/trash-ash.png",
         icon_size = 32,
         flags = {"goes-to-main-inventory"},
         subgroup = "intermediate-product",

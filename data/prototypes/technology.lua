@@ -3,7 +3,7 @@ data:extend({
     {
         type = "technology",
         name = "incineration",
-        icon = "__Incinerator__/graphics/incineration-tech.png",
+        icon = "__Advanced-WasteManagement__/graphics/technology/incineration-tech.png",
         icon_size = 128,
         prerequisites = {"advanced-material-processing"},
         effects =
@@ -11,6 +11,10 @@ data:extend({
             {
               type = "unlock-recipe",
               recipe = "incinerator"
+            },
+            {
+                type = "unlock-recipe",
+                recipe = "ash-remover"
             }
         },		 
         unit =

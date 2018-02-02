@@ -6,50 +6,67 @@ data:extend(
         name = "incinerator",
         enabled = false,
         energy_required = 10,
-        ingredients = {{"stone-furnace", 1}, {"pipe", 4}},
+        ingredients = {{"steel-furnace", 1}, {"pipe", 10}, {"fast-transport-belt", 4}},
         result = "incinerator",
         result_count = 1,
     },
 
+    --Ash-Remover
+    {
+        type = "recipe",
+        name = "ash-remover",
+        icon_size = 32,
+        enabled = false,
+        ingredients =
+        {
+          {"fast-inserter", 1},
+          {"coal", 5}
+        },
+        result = "ash-remover",
+    },
+
     --Ash smelting
-    -- TODO: new recipes for each type of ash (copper,iron,stone)
     {
         type = "recipe",
         name = "rich-iron-recovery",
         category = "smelting",
-        energy_required = 10,
+        energy_required = 30,
         ingredients = {{ "rich-iron-ash", 1}},
         enabled = true,
-        result =  "steel-plate"
+        result =  "iron-plate",
+        result_count = 20
     },
     {
         type = "recipe",
         name = "iron-recovery",
         category = "smelting",
         energy_required = 20,
-        ingredients = {{ "iron-ash", 2}},
+        ingredients = {{ "iron-ash", 1}},
         enabled = true,
-        result =  "iron-plate"
+        result =  "iron-plate",
+        result_count = 2
     },
     {
         type = "recipe",
         name = "rich-copper-recovery",
         category = "smelting",
-        energy_required = 20,
+        energy_required = 30,
         ingredients = {{ "rich-copper-ash", 1}},
         enabled = true,
-        result =  "copper-plate"
+        result =  "copper-plate",
+        result_count = 20
     },
     {
         type = "recipe",
-        name = "iron-recovery",
+        name = "copper-recovery",
         category = "smelting",
         energy_required = 20,
-        ingredients = {{ "copper-ash", 2}},
+        ingredients = {{ "copper-ash", 1}},
         enabled = true,
-        result =  "copper-plate"
+        result =  "copper-plate",
+        result_count = 2
     },
-
+    
     -- trash-ash recipes
     {
         type = "recipe",

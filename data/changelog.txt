@@ -1,0 +1,13 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.1.1
+Date: 02. 02. 2018
+  Features:
+    - New optional setting "Everything Burns" - If enabled all items can be burnt inside the incinerator.
+  Balancing:
+    - Significantly reduced fuel value items that contain electronic-circuits
+    - Increased output of ash smelting recipes
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 01. 02. 2018
+  Features:
+    - Initial release 
