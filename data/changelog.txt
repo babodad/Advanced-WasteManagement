@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.1.2
+Date: 02. 02. 2018
+  Features:
+    - New inserter added: Ash-Remover is able to remove ash from the incinerator (unfortunately this is not possible with regular inserters)
+---------------------------------------------------------------------------------------------------
 Version: 0.1.1
 Date: 02. 02. 2018
   Features:

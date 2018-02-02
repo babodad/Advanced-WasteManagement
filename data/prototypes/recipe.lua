@@ -20,7 +20,7 @@ data:extend(
         ingredients =
         {
           {"fast-inserter", 1},
-          {"coal", 5}
+          {"coal", 4}
         },
         result = "ash-remover",
     },
