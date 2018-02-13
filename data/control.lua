@@ -37,16 +37,17 @@ function on_tick_holder()
   local entity = global.inserters[inserters_index]
   if is_valid(entity) then
     check_inserter(entity)
-  else 
-    return
+  -- else 
+  --   return
   end
   
-  if inserters_index >= #global.inserters then
+  if inserters_index >= #global.inserters or inserters_index < 0 then
     global.inserters_index = 1
   else 
     -- on next tick process next inserter
     global.inserters_index = inserters_index + 1
   end
+  -- printAll(serpent.block(#global.inserters , {comment = false}))
 end
 
 function check_inserter(inserter)

@@ -4,12 +4,25 @@ data:extend(
     {
         type = "item",
         name = "incinerator",
-        icon = "__Advanced-WasteManagement__/graphics/icons/boiler.png",
+        icon = "__Advanced-WasteManagement__/graphics/icons/incinerator.png",
         icon_size = 32,
         flags = {"goes-to-quickbar"},
         subgroup = "energy",
-        order = "b[steam-power]-a[boiler]",
+        order = "b[steam-power]-a[boiler]z",
         place_result = "incinerator",
+        stack_size = 50
+    },
+
+    --- Incinerator:
+    {
+        type = "item",
+        name = "advanced-incinerator",
+        icon = "__Advanced-WasteManagement__/graphics/icons/advanced-incinerator.png",
+        icon_size = 32,
+        flags = {"goes-to-quickbar"},
+        subgroup = "energy",
+        order = "b[steam-power]-c[steam-turbine]z",
+        place_result = "advanced-incinerator",
         stack_size = 50
     },
 

@@ -27,7 +27,34 @@ data:extend({
             },
             time = 42
         }
-    }
+    },
+
+        --AWM
+        {
+            type = "technology",
+            name = "awm",
+            icon = "__Advanced-WasteManagement__/graphics/technology/awm-tech.png",
+            icon_size = 128,
+            prerequisites = {"nuclear-power"},
+            effects =
+            {
+                {
+                  type = "unlock-recipe",
+                  recipe = "advanced-incinerator"
+                },
+            },		 
+            unit =
+            {
+                count = 42,
+                ingredients =
+                {
+                    {"science-pack-1", 1},
+                    {"science-pack-2", 1},
+                    {"science-pack-3", 1},
+                },
+                time = 42
+            }
+        }
 
 })
 

@@ -11,6 +11,17 @@ data:extend(
         result_count = 1,
     },
 
+    --- Advanced Incinerator:
+    {
+        type = "recipe",
+        name = "advanced-incinerator",
+        enabled = false,
+        energy_required = 20,
+        ingredients = {{"steel-furnace", 1}, {"pipe", 20}, {"express-transport-belt", 4}, {"used-up-uranium-fuel-cell", 2}},
+        result = "advanced-incinerator",
+        result_count = 1,
+    },
+
     --Ash-Remover
     {
         type = "recipe",
