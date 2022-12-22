@@ -930,8 +930,8 @@ data:extend(
     pickup_position = {0, -1},
     insert_position = {0, 1.2},
     -- insert_position = {0, 1},
-    energy_per_movement = 20000,
-    energy_per_rotation = 20000,
+    energy_per_movement = "20kJ",
+    energy_per_rotation = "20kJ",
     energy_source =
     {
       type = "electric",
