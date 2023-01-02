@@ -13,7 +13,7 @@ data:extend(
         stack_size = 50
     },
 
-    --- Incinerator:
+    --- Advanced Incinerator:
     {
         type = "item",
         name = "advanced-incinerator",
@@ -25,6 +25,19 @@ data:extend(
         place_result = "advanced-incinerator",
         stack_size = 50
     },
+
+    ---- Waste Furnace:
+    {
+        type = "item",
+        name = "waste-furnace",
+        icon = "__Advanced-WasteManagement__/graphics/icons/waste-furnace-icon.png",
+        icon_size = 64,
+        flags = {},
+        subgroup = "energy",
+        order = "b[steam-power]-c[steam-turbine]z",
+        place_result = "waste-furnace",
+        stack_size = 10
+      },
 
     --- Ash-Remover:
     {

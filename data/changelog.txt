@@ -1,7 +1,24 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.2
+Date: 03.01.2022
+  Bugfixes:
+    - HEWIP recipe no longer unlocked by default. You have to research Advanced Waste Management first!
+---------------------------------------------------------------------------------------------------
+Version: 0.2.1
+Date: 02.01.2022
+  Features:
+    - New Entity: HEWIP (High Efficiency Waste Incineration Plant) allows to produce electric power directly from waste incinderation
+  Balancing:
+    - Higher research and construction costs
+  Graphics:
+    - Ash-Removal Inserter now with darker textures    
+  Bugfixes:
+    - Added missing Fuel Category Description
+---------------------------------------------------------------------------------------------------
 Version: 0.2.0
 Date: 22.12.2022
-  Updated for compatibility with Factorio v1.1
+  Info:
+    - Updated for compatibility with Factorio v1.1
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.4
 Date: 13. 02. 2018

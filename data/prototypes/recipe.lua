@@ -6,7 +6,7 @@ data:extend(
         name = "incinerator",
         enabled = false,
         energy_required = 10,
-        ingredients = {{"steel-furnace", 1}, {"pipe", 10}, {"fast-transport-belt", 4}},
+        ingredients = {{"steel-furnace", 1}, {"pipe", 10}, {"transport-belt", 4}},
         result = "incinerator",
         result_count = 1,
     },
@@ -17,10 +17,24 @@ data:extend(
         name = "advanced-incinerator",
         enabled = false,
         energy_required = 20,
-        ingredients = {{"steel-furnace", 1}, {"pipe", 20}, {"express-transport-belt", 4}, {"used-up-uranium-fuel-cell", 2}},
+        ingredients = {{"steel-furnace", 1}, {"pipe", 20}, {"fast-transport-belt", 4},},
         result = "advanced-incinerator",
         result_count = 1,
     },
+    
+    ---- Waste Furnace:
+    {
+        type = "recipe",
+        name = "waste-furnace",
+        enabled = false,
+        ingredients =
+        {
+          {"electric-furnace", 1},
+          {"electric-engine-unit", 2},
+          {"express-transport-belt", 4}
+        },
+        result = "waste-furnace"
+      },
 
     --Ash-Remover
     {

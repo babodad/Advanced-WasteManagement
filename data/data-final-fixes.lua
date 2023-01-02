@@ -179,3 +179,5 @@ AddFuel(data.raw.armor, "armor")
 AddFuel(data.raw.gun, "gun")
 AddFuel(data.raw.capsule, "capsule")
 AddFuel(data.raw.module, "module")
+
+

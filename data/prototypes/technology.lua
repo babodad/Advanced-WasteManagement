@@ -19,11 +19,12 @@ data:extend({
         },		 
         unit =
         {
-            count = 42,
+            count = 400,
             ingredients =
             {
                 {"automation-science-pack", 1},
                 {"logistic-science-pack", 1},
+                {"chemical-science-pack", 1}
             },
             time = 42
         }
@@ -42,15 +43,19 @@ data:extend({
                   type = "unlock-recipe",
                   recipe = "advanced-incinerator"
                 },
+                {
+                    type = "unlock-recipe",
+                    recipe = "waste-furnace"
+                }      
             },		 
             unit =
             {
-                count = 42,
+                count = 600,
                 ingredients =
                 {
                     {"automation-science-pack", 1},
                     {"logistic-science-pack", 1},
-                    {"military-science-pack", 1},
+                    {"chemical-science-pack", 1}
                 },
                 time = 42
             }

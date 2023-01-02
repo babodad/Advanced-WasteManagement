@@ -1078,4 +1078,3 @@ data:extend(
     default_stack_control_input_signal = inserter_default_stack_control_input_signal
   },
 })
-
